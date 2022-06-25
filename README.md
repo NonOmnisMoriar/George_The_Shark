@@ -16,3 +16,11 @@ There will be 10 levels to play, that get progressively more difficult.
 - 3 = You win
 
 You will need 6 points to go up a level.
+
+
+## Actions TODO
+- 2 Player game
+- Unicorn fires bullets
+- Shark fires lasers
+- Flip aspect ratio to the horizonatal
+
