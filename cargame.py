@@ -2,16 +2,6 @@ import pygame
 from pygame.locals import *
 import random
 
-# TO DO
-#
-# 2 Player game
-# Unicorn fires bullets
-# Shark fires lasers
-# Flip to the horizonatal
-#
-
-
-
 # shape parameters
 size = width, height = (800, 800)
 road_w = int(width/1.6)
@@ -29,7 +19,7 @@ running = True
 # set window size
 screen = pygame.display.set_mode(size)
 # set window title
-pygame.display.set_caption("Lara's game")
+pygame.display.set_caption("Lara's very exciting and fun to play game - George the Shark")
 # set background colour
 screen.fill((60, 220, 0))
 # apply changes
@@ -38,7 +28,7 @@ pygame.display.update()
 # load player vehicle
 car = pygame.image.load("unicorn.png")
 #resize image
-#car = pygame.transform.scale(car, (250, 250))
+car = pygame.transform.scale(car, (250, 250))
 car_loc = car.get_rect()
 car_loc.center = right_lane, height*0.8
 
@@ -46,6 +36,15 @@ car_loc.center = right_lane, height*0.8
 car2 = pygame.image.load("shark.png")
 car2_loc = car2.get_rect()
 car2_loc.center = left_lane, height*0.2
+
+# Load life symbol
+heart = pygame.image.load("life_symbol.png")
+heart_loc1 = heart.get_rect()
+heart_loc2 = heart.get_rect()
+heart_loc3 = heart.get_rect()
+heart_loc1.center = (645, 25)
+heart_loc2.center = (705, 25)
+heart_loc3.center = (765, 25)
 
 counter = 0
 # game loop
@@ -68,6 +67,7 @@ while running:
             car2_loc.center = left_lane, -200
 
     # end game logic
+    # TODO remove this logic and use lives to drive endgame
     if car_loc[0] == car2_loc[0] and car2_loc[1] > car_loc[1] - 250:
         print("GAME OVER! YOU LOST!")
         break
@@ -109,6 +109,9 @@ while running:
     # place car images on the screen
     screen.blit(car, car_loc)
     screen.blit(car2, car2_loc)
+    screen.blit(heart, heart_loc1)
+    screen.blit(heart, heart_loc2)
+    screen.blit(heart, heart_loc3)
     # apply changes
     pygame.display.update()
 
